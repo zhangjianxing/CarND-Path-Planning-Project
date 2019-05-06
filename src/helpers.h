@@ -5,6 +5,16 @@
 #include <string>
 #include <vector>
 
+#include <cmath>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include "json.hpp"
+
+//#include <eigen3/Eigen/Dense>
+//#include "Eigen-3.3/Eigen/Dense"
+
 // for convenience
 using std::string;
 using std::vector;
@@ -90,7 +100,7 @@ vector<double> getFrenet(double x, double y, double theta,
     int prev_wp;
     prev_wp = next_wp-1;
     if (next_wp == 0) {
-        prev_wp  = maps_x.size()-1;
+        prev_wp  = int(maps_x.size()) - 1;
     }
     
     double n_x = maps_x[next_wp]-maps_x[prev_wp];
